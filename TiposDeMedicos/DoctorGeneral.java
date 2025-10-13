@@ -1,0 +1,46 @@
+package TiposDeMedicos;
+
+public class DoctorGeneral extends TrabajadorMedico{
+
+    private String especializacion;
+    private int maxCantidadPacientes;
+    private double tarifaConsulta;
+
+    public DoctorGeneral(int id, String nombre, String departamenteAsignado, String tiempoEjerciendo,
+            double salarioBase, String especializacion, int maxCantidadPacientes, double tarifaConsulta) {
+        super(id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase);
+        this.especializacion = especializacion; 
+        this.maxCantidadPacientes = maxCantidadPacientes;
+        this.tarifaConsulta = tarifaConsulta;
+    }
+
+    public String getEspecializacion() {
+        return especializacion;
+    }
+
+    public void setEspecializacion(String especializacion) {
+        this.especializacion = especializacion;
+    }
+
+    public int getMaxCantidadPacientes() {
+        return maxCantidadPacientes;
+    }
+
+    public void setMaxCantidadPacientes(int maxCantidadPacientes) {
+        this.maxCantidadPacientes = maxCantidadPacientes;
+    }
+
+    public double getTarifaConsulta() {
+        return tarifaConsulta;
+    }
+
+    public void setTarifaConsulta(double tarifaConsulta) {
+        this.tarifaConsulta = tarifaConsulta;
+    }
+    
+    @Override
+    public double CalcularSalario () {
+        this.salarioNeto = (this.salarioBase + this.consultasAsiganadas*this.tarifaConsulta);
+        return this.salarioNeto;
+    }
+}
