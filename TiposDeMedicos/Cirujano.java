@@ -1,34 +1,34 @@
 package TiposDeMedicos;
 public class Cirujano extends TrabajadorMedico{
 
-    private String tipoCirujia;
-    private int horasDisponibles;
+    private String tipoActividad;
+    private int duracionTratamiento;
     private double bono;
-    private double tarifaHora;
+    private double tarifaConsulta;
 
     public Cirujano(int id, String nombre, String departamenteAsignado, String tiempoEjerciendo, double salarioBase,
-     String tipoCirujia, int horasDisponibles, double bono, double tarifaHora) {
+     String tipoActividad, int duracionTratamiento, double bono, double tarifaHora) {
         super(id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase);
-        this.tipoCirujia = tipoCirujia;
-        this.horasDisponibles = horasDisponibles;
+        this.tipoActividad = tipoActividad;
+        this.duracionTratamiento = duracionTratamiento;
         this.bono = bono;
-        this.tarifaHora = tarifaHora;
+        this.tarifaConsulta = tarifaHora;
     }
 
     public String getTipoCirujia() {
-        return tipoCirujia;
+        return tipoActividad;
     }
 
-    public void setTipoCirujia(String tipoCirujia) {
-        this.tipoCirujia = tipoCirujia;
+    public void setTipoCirujia(String tipoActividad) {
+        this.tipoActividad = tipoActividad;
     }
 
     public int getHorasDisponibles() {
-        return horasDisponibles;
+        return duracionTratamiento;
     }
 
-    public void setHorasDisponibles(int horasDisponibles) {
-        this.horasDisponibles = horasDisponibles;
+    public void setHorasDisponibles(int duracionTratamiento) {
+        this.duracionTratamiento = duracionTratamiento;
     }
 
     public double getBono() {
@@ -40,16 +40,16 @@ public class Cirujano extends TrabajadorMedico{
     }
 
     public double getTarifaHora() {
-        return tarifaHora;
+        return tarifaConsulta;
     }
 
-    public void setTarifaHora(double tarifaHora) {
-        this.tarifaHora = tarifaHora;
+    public void setTarifaHora(double tarifaConsulta) {
+        this.tarifaConsulta = tarifaConsulta;
     }
 
     @Override
     public double CalcularSalario () {
-        this.salarioNeto = (this.salarioBase + this.bono + this.horasDisponibles*this.tarifaHora);
+        this.salarioNeto = (this.salarioBase + this.bono + this.duracionTratamiento*this.tarifaConsulta);
         return this.salarioNeto;
     }
     

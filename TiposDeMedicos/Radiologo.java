@@ -1,34 +1,35 @@
 package TiposDeMedicos;
 public class Radiologo extends TrabajadorMedico{
-    private String equipoCertificado;
-    private double tarifaEstudio;
+    
+    private String nivelCertificacion;
+    private double tarifaConsulta;
 
     public Radiologo(int id, String nombre, String departamenteAsignado, String tiempoEjerciendo, double salarioBase,
-    String equipoCertificado, double tarifaEstudio) {
+    String nivelCertificacion, double tarifaConsulta) {
         super(id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase);
-        this.equipoCertificado = equipoCertificado;
-        this.tarifaEstudio = tarifaEstudio;
+        this.nivelCertificacion = nivelCertificacion;
+        this.tarifaConsulta = tarifaConsulta;
     }
 
     public String getEquipoCertificado() {
-        return equipoCertificado;
+        return nivelCertificacion;
     }
 
-    public void setEquipoCertificado(String equipoCertificado) {
-        this.equipoCertificado = equipoCertificado;
+    public void setEquipoCertificado(String nivelCertificacion) {
+        this.nivelCertificacion = nivelCertificacion;
     }
 
     public double getTarifaEstudio() {
-        return tarifaEstudio;
+        return tarifaConsulta;
     }
 
-    public void setTarifaEstudio(double tarifaEstudio) {
-        this.tarifaEstudio = tarifaEstudio;
+    public void setTarifaEstudio(double tarifaConsulta) {
+        this.tarifaConsulta = tarifaConsulta;
     }
 
      @Override
     public double CalcularSalario () {
-        this.salarioNeto = (this.salarioBase + this.tarifaEstudio);
+        this.salarioNeto = (this.salarioBase + this.tarifaConsulta);
         return this.salarioNeto;
     }
     

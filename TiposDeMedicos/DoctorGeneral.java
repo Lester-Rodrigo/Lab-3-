@@ -3,14 +3,14 @@ package TiposDeMedicos;
 public class DoctorGeneral extends TrabajadorMedico{
 
     private String especializacion;
-    private int maxCantidadPacientes;
+    private int maxCantidad;
     private double tarifaConsulta;
 
     public DoctorGeneral(int id, String nombre, String departamenteAsignado, String tiempoEjerciendo,
             double salarioBase, String especializacion, int maxCantidadPacientes, double tarifaConsulta) {
         super(id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase);
         this.especializacion = especializacion; 
-        this.maxCantidadPacientes = maxCantidadPacientes;
+        this.maxCantidad = maxCantidadPacientes;
         this.tarifaConsulta = tarifaConsulta;
     }
 
@@ -23,11 +23,11 @@ public class DoctorGeneral extends TrabajadorMedico{
     }
 
     public int getMaxCantidadPacientes() {
-        return maxCantidadPacientes;
+        return maxCantidad;
     }
 
-    public void setMaxCantidadPacientes(int maxCantidadPacientes) {
-        this.maxCantidadPacientes = maxCantidadPacientes;
+    public void setMaxCantidadPacientes(int maxCantidad) {
+        this.maxCantidad = maxCantidad;
     }
 
     public double getTarifaConsulta() {

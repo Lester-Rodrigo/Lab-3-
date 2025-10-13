@@ -7,6 +7,8 @@ public class Main {
     Scanner input = new Scanner(System.in);
     int pagina;
 
+    ControladorCreadorImprimir controladorCreadorImprimir = new ControladorCreadorImprimir();
+
        do {
         do {
             System.out.println("1. Ingresar núevo doctor: ");
@@ -19,7 +21,10 @@ public class Main {
         } while (pagina < 1 && pagina > 5);
         switch (pagina) {
             case 1:
-                
+                controladorCreadorImprimir.imprimirControladorCraedor();
+                    for (DoctorGeneral string : controladorCreadorImprimir.controladorCreador.getDoctoresGenerales()) {
+                        System.out.println(string.getNombre());
+                    }
                 break;
         
             case 2:

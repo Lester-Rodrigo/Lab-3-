@@ -3,14 +3,14 @@ public class Terapeuta extends TrabajadorMedico{
 
     private String especializacion;
     private int duracionTratamiento;
-    private double costoTratamiento;
+    private double tarifaConsulta;
 
     public Terapeuta(int id, String nombre, String departamenteAsignado, String tiempoEjerciendo, double salarioBase,
-    String especializacion, int duracionTratamiento, double costoTratamiento) {
+    String especializacion, int duracionTratamiento, double tarifaConsulta) {
         super(id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase);
         this.especializacion = especializacion;
         this.duracionTratamiento = duracionTratamiento;
-        this.costoTratamiento = costoTratamiento;
+        this.tarifaConsulta = tarifaConsulta;
     }
 
     public String getEspecializacion() {
@@ -30,16 +30,16 @@ public class Terapeuta extends TrabajadorMedico{
     }
 
     public double getCostoTratamiento() {
-        return costoTratamiento;
+        return tarifaConsulta;
     }
 
-    public void setCostoTratamiento(double costoTratamiento) {
-        this.costoTratamiento = costoTratamiento;
+    public void setCostoTratamiento(double tarifaConsulta) {
+        this.tarifaConsulta = tarifaConsulta;
     }
 
     @Override
     public double CalcularSalario () {
-        this.salarioNeto = (this.salarioBase + this.duracionTratamiento*this.costoTratamiento);
+        this.salarioNeto = (this.salarioBase + this.duracionTratamiento*this.tarifaConsulta);
         return this.salarioNeto;
     }
     

@@ -1,22 +1,22 @@
 package TiposDeMedicos;
 public class Enfermero extends TrabajadorMedico{
 
-    private String tipoTurno;
+    private String tipoActividad;
     private String nivelCertificacion;
     private double bonoNocturno;
 
-    public Enfermero(int id, String nombre, String departamenteAsignado, String tiempoEjerciendo, double salarioBase, String tipoTurno,
-     String nivelCertificacion) {
+    public Enfermero(int id, String nombre, String departamenteAsignado, String tiempoEjerciendo, double salarioBase, 
+    String tipoActividad, String nivelCertificacion) {
         super(id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase);
-        this.tipoTurno = tipoTurno;
+        this.tipoActividad = tipoActividad;
         this.nivelCertificacion = nivelCertificacion;
     }
 
     public String getTipoTurno() {
-        return tipoTurno;
+        return tipoActividad;
     }
-    public void setTipoTurno(String tipoTurno) {
-        this.tipoTurno = tipoTurno;
+    public void setTipoTurno(String tipoActividad) {
+        this.tipoActividad = tipoActividad;
     }
     public String getNivelCertificacion() {
         return nivelCertificacion;
@@ -35,7 +35,7 @@ public class Enfermero extends TrabajadorMedico{
 
     @Override
     public double CalcularSalario () {
-        if (this.tipoTurno.equals("Nocturno")) {
+        if (this.tipoActividad.equals("Nocturno")) {
             this.bonoNocturno = 550.00;
             this.salarioNeto = (this.salarioBase + this.bonoNocturno);
         }

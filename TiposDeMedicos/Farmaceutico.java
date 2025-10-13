@@ -1,29 +1,29 @@
 package TiposDeMedicos;
 public class Farmaceutico extends TrabajadorMedico{
-    private int limitePrescripciones;
-    private String licencia;
+    private int maxCantidad;
+    private String nivelCertificacion;
 
     public Farmaceutico(int id, String nombre, String departamenteAsignado, String tiempoEjerciendo,
-            double salarioBase, int limitePrescripciones, String licencia) {
+            double salarioBase, int limitePrescripciones, String nivelCertificacion) {
         super(id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase);
-        this.limitePrescripciones = limitePrescripciones;
-        this.licencia = licencia;
+        this.maxCantidad = limitePrescripciones;
+        this.nivelCertificacion = nivelCertificacion;
     }
 
     public int getLimitePrescripciones() {
-        return limitePrescripciones;
+        return maxCantidad;
     }
 
-    public void setLimitePrescripciones(int limitePrescripciones) {
-        this.limitePrescripciones = limitePrescripciones;
+    public void setLimitePrescripciones(int maxCantidad) {
+        this.maxCantidad = maxCantidad;
     }
 
     public String getLicencia() {
-        return licencia;
+        return nivelCertificacion;
     }
 
-    public void setLicencia(String licencia) {
-        this.licencia = licencia;
+    public void setLicencia(String nivelCertificacion) {
+        this.nivelCertificacion = nivelCertificacion;
     }
     
     @Override
