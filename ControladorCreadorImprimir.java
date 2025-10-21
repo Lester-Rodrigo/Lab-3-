@@ -31,6 +31,7 @@ public class ControladorCreadorImprimir {
         System.out.println("4. Farmaceutico");
         System.out.println("5. Radiologo");
         System.out.println("6. Terapeuta");
+        System.out.println("Seleccione una opción del 1 al 6: ");
         opcion = input1.nextInt();
 
         System.out.println("----- Ingrese los datos del doctor -----");
@@ -84,7 +85,6 @@ public class ControladorCreadorImprimir {
 
                 System.out.println("Ingrese el nivel de certificación del enfermero: ");
                 nivelCertificacion = input2.nextLine();
-                input2.nextLine();
 
                 controladorCreador.nuevoDoctor(opcion, nombre, "Enfermería", tiempoEjerciendo, salarioBase, 
             null, 0, 0, tipoActividad, 0, nivelCertificacion, 0);
@@ -96,7 +96,7 @@ public class ControladorCreadorImprimir {
 
                 System.out.println("Ingrese la cantidad máxima de recetas que puede hacer el farmacéutico: ");
                 maxCantidad = input2.nextInt(); 
-                input2.nextLine();input2.nextLine();
+                input2.nextLine();
 
                 controladorCreador.nuevoDoctor(opcion, nombre, "Farmaceútica", tiempoEjerciendo, salarioBase, 
             null, maxCantidad, 0, null, 0, nivelCertificacion, 0);

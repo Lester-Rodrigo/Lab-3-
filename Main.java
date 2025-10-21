@@ -25,6 +25,7 @@ public class Main {
             System.out.println("3. Ver departamentos/doctores: ");
             System.out.println("4. Ver citas: ");
             System.out.println("5. Salir: ");
+            System.out.println("Seleccione una opción del 1 al 5: ");
             pagina = input.nextInt();
 
         } while (pagina < 1 && pagina > 5);
@@ -50,7 +51,8 @@ public class Main {
                     System.out.println(controladorCreadorCitaImprimir.agendarCita());
                     for (CitaMedica citaMedica : controladorCreadorCitaImprimir.getControladorCreadorCita().getCitasMedicas()) {
                     System.out.println("ID Cita: " + citaMedica.getIdCita() + ", Paciente: " + citaMedica.getNobrePaciente() + 
-                    ", Doctor: " + citaMedica.getNombreDoctor() + ", Fecha: " + citaMedica.getFecha().toString());
+                    ", Doctor: " + citaMedica.getNombreDoctor() + ", Enfermero: "+ citaMedica.getNombreEnfermero()+ 
+                    ", Fecha: " + citaMedica.getFecha().toString());
                     }
                 }
                 break;

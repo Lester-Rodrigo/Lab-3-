@@ -23,7 +23,7 @@ public class ControladorCreadorCitaImprimir {
     private String nombreDoctor;
     private LocalDateTime fecha;
     //Partes de la fecha
-    private int año;
+    private int year;
     private int mes;
     private int dia;
     private int hora;
@@ -43,16 +43,16 @@ public class ControladorCreadorCitaImprimir {
         System.out.println("¿Qué tipo de médico necesita?: ");
         System.out.println("1. Doctor General");
         System.out.println("2. Cirujano");
-        System.out.println("3. Enfermero");
-        System.out.println("4. Farmaceutico");
-        System.out.println("5. Radiologo");
-        System.out.println("6. Terapeuta");
+        System.out.println("3. Farmaceutico");
+        System.out.println("4. Radiologo");
+        System.out.println("5. Terapeuta");
+        System.out.println("Seleccione una opción del 1 al 5: ");
         opcion = input1.nextInt();
         input1.nextLine();
         switch (opcion) {
             case 1:
             for (DoctorGeneral doctorGeneral : main.getControladorCreadorImprimir().getControladorCreador().getDoctoresGenerales()) {
-                System.out.println(doctorGeneral.getId() + ". Doctor disponible: " + doctorGeneral.getNombre());
+                System.out.println("Doctor disponible: " +doctorGeneral.getId()+ ") " + doctorGeneral.getNombre());
                 }
                 System.out.println("Ingrese el id del doctor: ");
                 idDoctor = input1.nextInt();
@@ -62,12 +62,11 @@ public class ControladorCreadorCitaImprimir {
                         doctorGeneral.setConsultasAsiganadas();
                     }
                 }
-                nombreDoctor = input1.nextLine();  
                 break;
         
             case 2:
             for (Cirujano cirujano : main.getControladorCreadorImprimir().getControladorCreador().getCirujanos()) {
-                System.out.println("Doctor disponible: " + cirujano.getNombre());
+                System.out.println("Doctor disponible: " +cirujano.getId()+ ") " + cirujano.getNombre());
                 }
                 System.out.println("Ingrese el id del doctor: ");
                 idDoctor = input1.nextInt();
@@ -80,22 +79,8 @@ public class ControladorCreadorCitaImprimir {
                 break;
 
             case 3:
-            for (Enfermero enfermero : main.getControladorCreadorImprimir().getControladorCreador().getEnfermeros()) {
-                System.out.println("Doctor disponible: " + enfermero.getNombre());
-                }
-                System.out.println("Ingrese el id del doctor: ");
-                idDoctor = input1.nextInt();
-                for (Enfermero enfermero : main.getControladorCreadorImprimir().getControladorCreador().getEnfermeros()) {
-                    if (enfermero.getId() == idDoctor) {
-                        nombreDoctor = enfermero.getNombre();
-                        enfermero.setConsultasAsiganadas();
-                    }
-                }
-                break;
-
-            case 4:
                 for (Farmaceutico farmaceutico : main.getControladorCreadorImprimir().getControladorCreador().getFarmaceuticos()) {
-                    System.out.println("Doctor disponible: " + farmaceutico.getNombre());
+                    System.out.println("Doctor disponible: " +farmaceutico.getId()+ ") " + farmaceutico.getNombre());
                 }
                 System.out.println("Ingrese el id del doctor: ");
                 idDoctor = input1.nextInt();
@@ -107,9 +92,9 @@ public class ControladorCreadorCitaImprimir {
                 }
                 break;
 
-            case 5:
+            case 4:
             for (Radiologo radiologo : main.getControladorCreadorImprimir().getControladorCreador().getRadiologos()) {
-                System.out.println("Doctor disponible: " + radiologo.getNombre());  
+                System.out.println("Doctor disponible: " +radiologo.getId()+ ") " + radiologo.getNombre());  
                 }
                 System.out.println("Ingrese el id del doctor: ");
                 idDoctor = input1.nextInt();
@@ -121,9 +106,9 @@ public class ControladorCreadorCitaImprimir {
                 }
                 break;
 
-            case 6:
+            case 5:
             for (Terapeuta terapeuta : main.getControladorCreadorImprimir().getControladorCreador().getTerapeutas()) {
-                System.out.println("Doctor disponible: " + terapeuta.getNombre());         
+                System.out.println("Doctor disponible: " +terapeuta.getId()+ ") " + terapeuta.getNombre());         
                 }
                 System.out.println("Ingrese el id del doctor: ");
                 idDoctor = input1.nextInt();
@@ -137,7 +122,7 @@ public class ControladorCreadorCitaImprimir {
         }
 
         System.out.println("Ingrese el año de la cita (YYYY): ");
-        año = input2.nextInt();
+        year = input2.nextInt();
         System.out.println("Ingrese el mes de la cita (MM): ");
         mes = input2.nextInt();
         System.out.println("Ingrese el día de la cita (dd): ");
@@ -146,13 +131,24 @@ public class ControladorCreadorCitaImprimir {
         hora = input2.nextInt();
         System.out.println("Ingrese los minutos de la cita (mm): ");
         minutos = input2.nextInt();
-        fecha = LocalDateTime.of(año, mes, dia, hora, minutos);
+        fecha = LocalDateTime.of(year, mes, dia, hora, minutos);
 
+        input1.nextLine();
         System.out.println("¿Requiere de un enfermero para esta cita Y/N?): ");
         necesitaEnfermero = input1.nextLine();
+        necesitaEnfermero = necesitaEnfermero.toUpperCase();
         if (necesitaEnfermero.equals("Y")) {
-            System.out.println("Ingrese el nombre del enfermero: ");
-            nombreEnfermero = input1.nextLine();
+            for (Enfermero enfermero : main.getControladorCreadorImprimir().getControladorCreador().getEnfermeros()) {
+                System.out.println("Enfermero disponible: " +enfermero.getId()+ ") " + enfermero.getNombre());
+                }
+                System.out.println("Ingrese el id del enfermero: ");
+                idDoctor = input1.nextInt();
+                for (Enfermero enfermero : main.getControladorCreadorImprimir().getControladorCreador().getEnfermeros()) {
+                    if (enfermero.getId() == idDoctor) {
+                        nombreEnfermero = enfermero.getNombre();
+                        enfermero.setConsultasAsiganadas();
+                    }
+                }
         }
         else {
             nombreEnfermero = null;
