@@ -2,15 +2,13 @@ import java.util.Scanner;
 
 public class ControladorCreadorImprimir {
 
-    ControladorCreador controladorCreador = new ControladorCreador();
+    private ControladorCreador controladorCreador = new ControladorCreador();
 
     Scanner input1 = new Scanner(System.in);
     Scanner input2 = new Scanner(System.in);
 
-    private int opcion; 
-    private int id;
-    private String nombre; 
-    private String departamenteAsignado; 
+    private int opcion;
+    private String nombre;
     private String tiempoEjerciendo;
     private double salarioBase;
     private String especializacion;
@@ -39,17 +37,11 @@ public class ControladorCreadorImprimir {
         System.out.println("Ingrese el nombre del doctor: ");
         nombre = input2.nextLine();
 
-        System.out.println("Ingrese el departamento asignado del doctor: ");
-        departamenteAsignado = input2.nextLine();
-
         System.out.println("Ingrese el tiempo ejerciendo del doctor: ");
         tiempoEjerciendo = input2.nextLine();
 
         System.out.println("Ingrese el salario base del doctor: ");
         salarioBase = input2.nextDouble();
-
-        System.out.println("Ingrese el ID del doctor: ");
-        id = input2.nextInt();
         input2.nextLine();
 
        switch (opcion) {
@@ -64,7 +56,7 @@ public class ControladorCreadorImprimir {
             maxCantidad = input2.nextInt();
             input2.nextLine();
 
-            controladorCreador.nuevoDoctor(opcion, id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase, 
+            controladorCreador.nuevoDoctor(opcion, nombre, "Medicina general", tiempoEjerciendo, salarioBase, 
             especializacion, maxCantidad, tarifaConsulta, null, 0.0, null, 0);
             break;
        
@@ -82,7 +74,7 @@ public class ControladorCreadorImprimir {
             duracionTratamiento = input2.nextInt();
             input2.nextLine();
 
-            controladorCreador.nuevoDoctor(opcion, id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase, 
+            controladorCreador.nuevoDoctor(opcion, nombre, "Cirujia", tiempoEjerciendo, salarioBase, 
             null, 0, tarifaConsulta, tipoActividad, bono, null, duracionTratamiento);
                 break;
         
@@ -94,7 +86,7 @@ public class ControladorCreadorImprimir {
                 nivelCertificacion = input2.nextLine();
                 input2.nextLine();
 
-                controladorCreador.nuevoDoctor(opcion, id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase, 
+                controladorCreador.nuevoDoctor(opcion, nombre, "Enfermería", tiempoEjerciendo, salarioBase, 
             null, 0, 0, tipoActividad, 0, nivelCertificacion, 0);
                 break;
 
@@ -106,7 +98,7 @@ public class ControladorCreadorImprimir {
                 maxCantidad = input2.nextInt(); 
                 input2.nextLine();input2.nextLine();
 
-                controladorCreador.nuevoDoctor(opcion, id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase, 
+                controladorCreador.nuevoDoctor(opcion, nombre, "Farmaceútica", tiempoEjerciendo, salarioBase, 
             null, maxCantidad, 0, null, 0, nivelCertificacion, 0);
                 break;
 
@@ -118,7 +110,7 @@ public class ControladorCreadorImprimir {
                 tarifaConsulta = input2.nextInt(); 
                 input2.nextLine();
 
-                controladorCreador.nuevoDoctor(opcion, id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase, 
+                controladorCreador.nuevoDoctor(opcion, nombre, "Radiología", tiempoEjerciendo, salarioBase, 
             null, 0, tarifaConsulta, null, 0, nivelCertificacion, 0);
                 break;
 
@@ -133,10 +125,14 @@ public class ControladorCreadorImprimir {
                 tarifaConsulta = input2.nextInt(); 
                 input2.nextLine();
 
-                controladorCreador.nuevoDoctor(opcion, id, nombre, departamenteAsignado, tiempoEjerciendo, salarioBase, 
+                controladorCreador.nuevoDoctor(opcion, nombre, "Terapia", tiempoEjerciendo, salarioBase, 
             especializacion, 0, tarifaConsulta, null, 0, null, duracionTratamiento);
                 break;
         } 
         return "Doctor agregado exitosamente.";
+    }
+
+     public ControladorCreador getControladorCreador() {
+        return controladorCreador;
     }
 }
