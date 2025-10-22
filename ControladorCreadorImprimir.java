@@ -38,7 +38,7 @@ public class ControladorCreadorImprimir {
         System.out.println("Ingrese el nombre del doctor: ");
         nombre = input2.nextLine();
 
-        System.out.println("Ingrese el tiempo ejerciendo del doctor: ");
+        System.out.println("Ingrese el tiempo ejerciendo del doctor (ejm: 5 años): ");
         tiempoEjerciendo = input2.nextLine();
 
         System.out.println("Ingrese el salario base del doctor: ");
