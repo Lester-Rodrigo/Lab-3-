@@ -51,8 +51,8 @@ public class TrabajadorMedico {
     public int getConsultasAsiganadas() {
         return consultasAsiganadas;
     }
-    public void setConsultasAsiganadas() {
-        this.consultasAsiganadas = this.consultasAsiganadas + 1;
+    public void setConsultasAsiganadas(int consultasAsiganadas) {
+        this.consultasAsiganadas = this.consultasAsiganadas + consultasAsiganadas;
     }
 
     public double getSalarioNeto() {

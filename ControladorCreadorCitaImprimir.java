@@ -22,14 +22,16 @@ public class ControladorCreadorCitaImprimir {
     private String nobrePaciente;
     private String nombreDoctor;
     private LocalDateTime fecha;
+    private String tipoCita;
+    private String nombreEnfermero;
+    private String necesitaEnfermero;
+    private String citaUnica;
     //Partes de la fecha
     private int year;
     private int mes;
     private int dia;
     private int hora;
     private int minutos;
-    private String nombreEnfermero;
-    private String necesitaEnfermero;
 
     public ControladorCreadorCitaImprimir (){
     }
@@ -54,17 +56,19 @@ public class ControladorCreadorCitaImprimir {
             for (DoctorGeneral doctorGeneral : main.getControladorCreadorImprimir().getControladorCreador().getDoctoresGenerales()) {
                 System.out.println("Doctor disponible: " +doctorGeneral.getId()+ ") " + doctorGeneral.getNombre());
                 }
+                tipoCita = "Medicina General";
                 System.out.println("Ingrese el id del doctor: ");
                 idDoctor = input1.nextInt();
                 for (DoctorGeneral doctorGeneral : main.getControladorCreadorImprimir().getControladorCreador().getDoctoresGenerales()) {
                     if (doctorGeneral.getId() == idDoctor) {
                         nombreDoctor = doctorGeneral.getNombre();
-                        doctorGeneral.setConsultasAsiganadas();
+                        doctorGeneral.setConsultasAsiganadas(1);
                     }
                 }
                 break;
         
             case 2:
+            tipoCita = "Cirugia";
             for (Cirujano cirujano : main.getControladorCreadorImprimir().getControladorCreador().getCirujanos()) {
                 System.out.println("Doctor disponible: " +cirujano.getId()+ ") " + cirujano.getNombre());
                 }
@@ -73,12 +77,13 @@ public class ControladorCreadorCitaImprimir {
                 for (Cirujano cirujano : main.getControladorCreadorImprimir().getControladorCreador().getCirujanos()) {
                     if (cirujano.getId() == idDoctor) {
                         nombreDoctor = cirujano.getNombre();
-                        cirujano.setConsultasAsiganadas();
+                        cirujano.setConsultasAsiganadas(1);
                     } 
                 }
                 break;
 
             case 3:
+            tipoCita = "Farmaceutica";
                 for (Farmaceutico farmaceutico : main.getControladorCreadorImprimir().getControladorCreador().getFarmaceuticos()) {
                     System.out.println("Doctor disponible: " +farmaceutico.getId()+ ") " + farmaceutico.getNombre());
                 }
@@ -87,12 +92,13 @@ public class ControladorCreadorCitaImprimir {
                 for (Farmaceutico farmaceutico : main.getControladorCreadorImprimir().getControladorCreador().getFarmaceuticos()) {
                     if (farmaceutico.getId() == idDoctor) {
                         nombreDoctor = farmaceutico.getNombre();
-                        farmaceutico.setConsultasAsiganadas();
+                        farmaceutico.setConsultasAsiganadas(1);
                     }
                 }
                 break;
 
             case 4:
+            tipoCita = "Radiologia";
             for (Radiologo radiologo : main.getControladorCreadorImprimir().getControladorCreador().getRadiologos()) {
                 System.out.println("Doctor disponible: " +radiologo.getId()+ ") " + radiologo.getNombre());  
                 }
@@ -101,12 +107,13 @@ public class ControladorCreadorCitaImprimir {
                 for (Radiologo radiologo : main.getControladorCreadorImprimir().getControladorCreador().getRadiologos()) {
                     if (radiologo.getId() == idDoctor) {
                         nombreDoctor = radiologo.getNombre();
-                        radiologo.setConsultasAsiganadas();
+                        radiologo.setConsultasAsiganadas(1);
                     }
                 }
                 break;
 
             case 5:
+            tipoCita = "Terapia";
             for (Terapeuta terapeuta : main.getControladorCreadorImprimir().getControladorCreador().getTerapeutas()) {
                 System.out.println("Doctor disponible: " +terapeuta.getId()+ ") " + terapeuta.getNombre());         
                 }
@@ -115,7 +122,7 @@ public class ControladorCreadorCitaImprimir {
                 for (Terapeuta terapeuta : main.getControladorCreadorImprimir().getControladorCreador().getTerapeutas()) {
                     if (terapeuta.getId() == idDoctor) {
                         nombreDoctor = terapeuta.getNombre();
-                        terapeuta.setConsultasAsiganadas();
+                        terapeuta.setConsultasAsiganadas(1);
                     }
                 }
                 break;
@@ -146,7 +153,7 @@ public class ControladorCreadorCitaImprimir {
                 for (Enfermero enfermero : main.getControladorCreadorImprimir().getControladorCreador().getEnfermeros()) {
                     if (enfermero.getId() == idDoctor) {
                         nombreEnfermero = enfermero.getNombre();
-                        enfermero.setConsultasAsiganadas();
+                        enfermero.setConsultasAsiganadas(1);
                     }
                 }
         }
@@ -154,9 +161,19 @@ public class ControladorCreadorCitaImprimir {
             nombreEnfermero = null;
         }
 
-        controladorCreadorCita.agendarCita(nobrePaciente, nombreDoctor, fecha, nombreEnfermero);
-
-        return "Cita agendada con éxito";
+        if (controladorCreadorCita.agendarCita(nobrePaciente, nombreDoctor, fecha, nombreEnfermero, tipoCita) == false 
+        && tipoCita.equals("Medicina General")) {
+            for (DoctorGeneral doctorGeneral : main.getControladorCreadorImprimir().getControladorCreador().getDoctoresGenerales()) {
+                if (nombreDoctor.equals(doctorGeneral.getNombre())) {
+                    doctorGeneral.setConsultasAsiganadas( -1);
+                    citaUnica = ("Error: El doctor ya tiene una cita agendada en esa fecha y hora.");
+                }
+            }
+        }
+        else {
+            citaUnica = ("Cita agendada con éxito");
+        }
+        return citaUnica;
     }
 
     public ControladorCreadorCita getControladorCreadorCita() {

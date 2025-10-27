@@ -39,7 +39,7 @@ public class Terapeuta extends TrabajadorMedico{
 
     @Override
     public double CalcularSalario () {
-        this.salarioNeto = (this.salarioBase + this.duracionTratamiento*this.tarifaConsulta);
+        this.salarioNeto = (this.salarioBase + this.getConsultasAsiganadas()*(this.duracionTratamiento*this.tarifaConsulta));
         return this.salarioNeto;
     }
     

@@ -136,7 +136,7 @@ public class Main {
 
             case 4:
                 for (CitaMedica citaMedica : controladorCreadorCitaImprimir.getControladorCreadorCita().getCitasMedicas()) {
-                    System.out.println(citaMedica.getFecha() + " - " + citaMedica.getNobrePaciente() + " con el Dr. " + citaMedica.getNombreDoctor());
+                    System.out.println(citaMedica.getIdCita() + ") " +citaMedica.getFecha() + " - " + citaMedica.getNobrePaciente() + " con el Dr. " + citaMedica.getNombreDoctor());
                 }
                 break;
 

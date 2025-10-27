@@ -5,17 +5,19 @@ public class CitaMedica {
     private String nobrePaciente;
     private String nombreDoctor;
     private String estadoCita;
+    private String tipoCita;
     private LocalDateTime fecha;
     private String nombreEnfermero;
 
     public CitaMedica (int idCita, String nobrePaciente, String nombreDoctor, String estadoCita,
-    LocalDateTime fecha,String nombreEnfermero) {
+    LocalDateTime fecha,String nombreEnfermero, String tipoCita) {
         this.idCita = idCita;
         this.nobrePaciente = nobrePaciente;
         this.nombreDoctor = nombreDoctor;
         this.estadoCita = estadoCita;
         this.fecha = fecha;
         this.nombreEnfermero = nombreEnfermero;
+        this.tipoCita = tipoCita;
     }
 
     public int getIdCita() {
@@ -41,6 +43,12 @@ public class CitaMedica {
     }
     public void setEstadoCita(String estadoCita) {
         this.estadoCita = estadoCita;
+    }
+    public String getTipoCita() {
+        return tipoCita;
+    }
+    public void setTipoCita(String tipoCita) {
+        this.tipoCita = tipoCita;
     }
     public LocalDateTime getFecha() {
         return fecha;

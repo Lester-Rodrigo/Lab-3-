@@ -29,7 +29,7 @@ public class Radiologo extends TrabajadorMedico{
 
      @Override
     public double CalcularSalario () {
-        this.salarioNeto = (this.salarioBase + this.tarifaConsulta);
+        this.salarioNeto = (this.salarioBase + this.getConsultasAsiganadas()*this.tarifaConsulta);
         return this.salarioNeto;
     }
     

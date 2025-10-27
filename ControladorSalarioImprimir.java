@@ -46,7 +46,7 @@ public class ControladorSalarioImprimir {
                         }
                         System.out.println("Ingrese el id del doctor: ");
                         id = input.nextInt();
-                        resultado = ("El salario calculado del doctor es: " + controladorSalario.CalcularSalarioDepartamento(opcion));
+                        resultado = ("El salario calculado del doctor es: " + controladorSalario.CalcularSalarioDoctor(opcion, id));
                     break;
         
                     case 2:
@@ -55,7 +55,7 @@ public class ControladorSalarioImprimir {
                         }
                         System.out.println("Ingrese el id del doctor: ");
                         id = input.nextInt();
-                        resultado = ("El salario calculado del doctor es: " + controladorSalario.CalcularSalarioDepartamento(opcion));
+                        resultado = ("El salario calculado del doctor es: " + controladorSalario.CalcularSalarioDoctor(opcion, id));
                     break;
 
                     case 3:
@@ -64,7 +64,7 @@ public class ControladorSalarioImprimir {
                         }
                         System.out.println("Ingrese el id del doctor: ");
                         id = input.nextInt();
-                        resultado = ("El salario calculado del doctor es: " + controladorSalario.CalcularSalarioDepartamento(opcion));
+                        resultado = ("El salario calculado del doctor es: " + controladorSalario.CalcularSalarioDoctor(opcion, id));
                     break;
 
                     case 4:
@@ -73,7 +73,7 @@ public class ControladorSalarioImprimir {
                         }
                         System.out.println("Ingrese el id del doctor: ");
                         id = input.nextInt();
-                        resultado = ("El salario calculado del doctor es: " + controladorSalario.CalcularSalarioDepartamento(opcion));
+                        resultado = ("El salario calculado del doctor es: " + controladorSalario.CalcularSalarioDoctor(opcion, id));
                     break;
 
                     case 5:
@@ -82,7 +82,7 @@ public class ControladorSalarioImprimir {
                         }
                         System.out.println("Ingrese el id del doctor: ");
                         id = input.nextInt();
-                        resultado = ("El salario calculado del doctor es: " + controladorSalario.CalcularSalarioDepartamento(opcion));
+                        resultado = ("El salario calculado del doctor es: " + controladorSalario.CalcularSalarioDoctor(opcion, id));
                     break;
 
                     case 6:
@@ -91,7 +91,7 @@ public class ControladorSalarioImprimir {
                         }
                         System.out.println("Ingrese el id del doctor: ");
                         id = input.nextInt();
-                        resultado = ("El salario calculado del doctor es: " + controladorSalario.CalcularSalarioDepartamento(opcion));
+                        resultado = ("El salario calculado del doctor es: " + controladorSalario.CalcularSalarioDoctor(opcion, id));
                     break;
                 }
                 break;
